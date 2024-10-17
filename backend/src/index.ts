@@ -13,7 +13,7 @@ app.get('/', (req :any, res  :any) => {
   res.status(200).json({message:'Hello to AV-Invoice!'});
 });
 
-app.get('/health', async (req  :any, res  :any) => {
+app.get('/health', async (req:any, res  :any) => {
     try{
         await prisma.$queryRaw`SELECT 1`;
         res.status(200).json({message:"Healthy Instance"});
