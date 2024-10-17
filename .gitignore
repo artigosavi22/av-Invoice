@@ -1,0 +1,11 @@
+/node_modules
+log
+log/*
+.env
+.vscode
+#prisma/migrations
+build
+pm2.*
+coverage
+*.yaml
+workers
