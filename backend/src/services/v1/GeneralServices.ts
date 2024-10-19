@@ -17,11 +17,11 @@ export class GeneralServices {
         return GeneralServices.instance;
     }
 
-    public async getUser(adminUser: IUser): Promise<any> {
+    public async getBranches(): Promise<any> {
         try {
-            return await this.generalRepository.getUser(adminUser);
+            return await this.generalRepository.getBranches();
         } catch (err) {
             throw err;
         }
-    }
+    } 
 }

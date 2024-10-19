@@ -28,6 +28,7 @@ export const validateLanguageParam = (
       res
     );
   }
+  console.log(language);
   const isSuppported = LANGUAGE.includes(language as string);
   if (!isSuppported) {
     return errorhandler(

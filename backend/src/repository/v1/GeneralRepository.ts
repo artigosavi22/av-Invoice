@@ -1,11 +1,10 @@
 import { IGeneralRepository } from "./models/IGenaralRepository";
 import { IUser } from "../../models/v1/IUser";
+import { prisma } from "../../config";
 
 export class GeneralRepository implements IGeneralRepository {
-    // Remove 'function' keyword
-    async getUser(useradmin: IUser): Promise<any> {
-        // You should implement the logic here
-        // For example, querying a database or an API.
-        return {}; // Just a placeholder return value
-    }
+
+  async getBranches(): Promise<any[]> {
+    return await prisma.av_branches_t.findMany();
+  }
 }

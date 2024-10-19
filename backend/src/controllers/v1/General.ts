@@ -6,13 +6,17 @@ import { AuthenticatedRequest } from "../../models/v1/Generals";
 
 const general = new GeneralServices();
 
-async function getUser(req: AuthenticatedRequest, res: Response): Promise<any> {
+
+async function getBranches(req: AuthenticatedRequest, res: Response): Promise<any> {
   try {
-    const data = await general.getUser(req.body);
+    console.log("Hello");
+    const data = await general.getBranches();
     res.status(200).json(data);
   } catch (error) {
     throw error;
   }
 }
 
-export { getUser };
+export { 
+  getBranches
+};
