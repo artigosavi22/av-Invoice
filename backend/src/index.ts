@@ -3,6 +3,7 @@ import cors from "cors";
 import { NODE_ENV, HOST,PORT, baseUrl, prisma } from "./config";
 import routes from "../src/routes/Index";
 import { validateLanguageParam } from '../../backend/src/middlewares/v1/validationMiddleware';
+import swaggerRouter from './routes/v1/Swagger';
 
 export const app = express();
 app.use(cors());
@@ -22,6 +23,8 @@ app.get('/health', async (req:any, res  :any) => {
         res.status(500).json({message:"Database connection Error"});
     }
 });
+
+app.use("/docs", swaggerRouter);
 
 app.use("/api",validateLanguageParam, routes);
 

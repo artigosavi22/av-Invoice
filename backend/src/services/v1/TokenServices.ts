@@ -1,4 +1,4 @@
-import { IUser } from "models/v1/IUser";
+import { IUser, VerifyRefreshToken } from "models/v1/IUser";
 import { GeneralRepository } from "../../repository/v1/GeneralRepository";
 import { IGeneralRepository } from "../../repository/v1/models/IGenaralRepository";
 import NodeCache from "node-cache";
@@ -47,6 +47,46 @@ export class TokenServices {
             return decoded.payload;
         } catch (error) {
             logger.error("Error in TokenServices"+ error);
+            if( error instanceof jwt.JsonWebTokenError){
+                throw new AppError(
+                    langData!.RESPONSE_MESSAGES.VALIDATOR.INVALID_TOKEN,
+                    STATUS_CODE.UNAUTHORIZED
+                );
+            }else if( error instanceof jwt.TokenExpiredError){
+                throw new AppError(
+                    langData!.RESPONSE_MESSAGES.VALIDATOR.TOKEN_EXPIRE,
+                    STATUS_CODE.UNAUTHORIZED
+                );
+            } else{
+                throw new AppError(
+                    langData!.RESPONSE_MESSAGES.VALIDATOR.FAILED_DECODE_TOKEN,
+                    STATUS_CODE.UNAUTHORIZED
+                );
+            }       
+        }
+    }
+
+    public blacklistToken(token:string):void{
+        const blacklistTime = Number(process.env.JWT_REGISTER_LINK_EXPIRATION) +10;
+        this.blacklistedtokens.set(token,token,blacklistTime);
+    }
+
+    public genarateRefreshToken(user_id: number): string {
+        const refreshToken = jwt.sign({user_id}, process.env.JWT_SECRETE!,{
+            expiresIn : `${process.env.JWT_REGISTER_LINK_EXPIRATION}${process.env.JWT_REGISTER_LINK_EXPIRATION_PARAMETER}`
+        });
+        return refreshToken;
+    } 
+
+    public verifyRefreshToken<T>(token:string, langData:any): VerifyRefreshToken {
+        try {
+            const decoded: VerifyRefreshToken = jwt.verify(
+                token, process.env.JWT_SECRETE!
+            ) as VerifyRefreshToken
+
+            return decoded;
+        } catch (error) {
+            logger.error("Error in RefreshTokenServices"+ error);
             if( error instanceof jwt.JsonWebTokenError){
                 throw new AppError(
                     langData!.RESPONSE_MESSAGES.VALIDATOR.INVALID_TOKEN,
