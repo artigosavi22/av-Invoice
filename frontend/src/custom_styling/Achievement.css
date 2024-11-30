@@ -1,0 +1,50 @@
+.achievements-container {
+    text-align: center;
+    margin: 20px;
+    padding: 0 60px;
+  }
+  
+  .achievements-title {
+    font-size: 24px;
+    color: #b8b8b8;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+  
+  .achievements {
+    display: flex;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .achievement {
+    text-align: center;
+  }
+  
+  .achievement-icon {
+    font-size: 40px;
+    color: #505050;
+    margin-bottom: 10px;
+  }
+  
+  .achievement-content {
+    font-family: 'Raleway', sans-serif;
+  }
+  
+  .achievement-number {
+    font-size: 36px;
+    font-weight: 700;
+    color: #505050;
+  }
+  
+  .achievement-title {
+    font-size: 18px;
+    color: #505050;
+  }
+  
+  .achievement-subtitle {
+    font-size: 14px;
+    color: #8d8d8d;
+  }
+  

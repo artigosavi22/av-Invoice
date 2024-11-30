@@ -1,0 +1,67 @@
+.about-us {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 50px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 1200px;
+  }
+  
+  .about-content {
+    flex: 1;
+    padding-right: 40px;
+  }
+  
+  .about-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .about-content p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  
+  .know-more-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .know-more-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .why-sujata {
+    flex: 1;
+    padding-left: 40px;
+  }
+  
+  .why-sujata h3 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .why-sujata ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .why-sujata ul li {
+    margin-bottom: 15px;
+    font-size: 1rem;
+  }
+  
+  .why-sujata ul li strong {
+    font-weight: bold;
+    color: #007bff;
+  }
+  
