@@ -1,0 +1,90 @@
+/* Slider container */
+.slider {
+    width: 100%;
+    /* max-width: 1000px; */
+    margin: 0 0;
+    position: relative;
+    /* overflow: hidden; Hides the images that are not in view */
+    overflow-x: hidden;
+  }
+  
+  /* Slider images wrapper */
+  .slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out; /* Smooth transition between slides */
+  }
+  
+  /* Individual slide (image) */
+  .slides img {
+    width: 100%; /* Make the image fill the container's width */
+    height: auto; /* Maintain the aspect ratio of the images */
+  }
+  
+  /* Dots for navigation */
+  .slider-dots {
+    text-align: center;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .dot {
+    height: 12px;
+    width: 12px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .dot.active {
+    background-color: #717171;
+  }
+  
+  /* Responsive breakpoints */
+  @media (max-width: 1024px) {
+    .slider {
+      max-width: 90%; /* Shrink the slider width on smaller screens */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .slider {
+        width: 100%;
+        max-width: 1000px;
+        /* margin: 0 auto; */
+        position: relative;
+        overflow: hidden; /* Hides the images that are not in view */
+      }
+    .slider {
+      max-width: 100%;
+    }
+  
+    .slider-dots {
+      bottom: 8px; /* Adjust dots positioning for smaller screens */
+    }
+  
+    .dot {
+      height: 10px;
+      width: 10px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .slider {
+      max-width: 100%; /* Ensure full width on mobile */
+    }
+  
+    .slider-dots {
+      bottom: 5px; /* Bring the dots closer to the slider on very small screens */
+    }
+  
+    .dot {
+      height: 8px;
+      width: 8px; /* Smaller dots for smaller screens */
+    }
+  }
+  
